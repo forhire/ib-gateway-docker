@@ -21,7 +21,7 @@ LABEL maintainer="forhire"
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG IB_GATEWAY_VERSION=stable-standalone
-ARG IB_CONTROLLER_VERSION=3.16.0
+ARG IB_CONTROLLER_VERSION=3.18.0
 ARG IB_GATEWAY_INSTVER=stable-standalone
 
 
@@ -36,7 +36,7 @@ RUN set -x && apt-get update && \
     xfonts-cyrillic \
     xinit \
     && rm -rf /var/lib/apt/lists/*
-
+# https://download2.interactivebrokers.com/installers/ibgateway/latest-standalone/ibgateway-latest-standalone-linux-x64.sh
 # Setup IB TWS and IBController
 RUN set -x && \
     mkdir -p /opt/TWS && \
