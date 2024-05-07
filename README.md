@@ -2,7 +2,7 @@
 
 IB Gateway running in Docker with [IB Controller](https://github.com/ib-controller/ib-controller/) and VNC
 
-* TWS Gateway: 10.25.1f
+* TWS Gateway: 10.29.1e
 * IBC: 3.18.0
 
 ### Docker container image
