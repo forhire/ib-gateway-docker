@@ -21,7 +21,7 @@ LABEL maintainer="forhire"
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG IB_GATEWAY_VERSION=stable-standalone
-ARG IB_CONTROLLER_VERSION=3.18.0
+ARG IB_CONTROLLER_VERSION=3.19.0
 ARG IB_GATEWAY_INSTVER=stable-standalone
 
 # https://github.com/IbcAlpha/IBC/releases/download/3.18.0-Update.1/IBCLinux-3.18.0.zip
