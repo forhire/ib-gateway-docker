@@ -24,7 +24,7 @@ ARG IB_GATEWAY_VERSION=stable-standalone
 ARG IB_CONTROLLER_VERSION=3.19.0
 ARG IB_GATEWAY_INSTVER=stable-standalone
 
-# https://github.com/IbcAlpha/IBC/releases/download/3.18.0-Update.1/IBCLinux-3.18.0.zip
+# https://github.com/IbcAlpha/IBC/releases/download/3.19.0/IBCLinux-3.19.0.zip
 
 # Install necessary packages
 RUN set -x && apt-get update && \
@@ -59,7 +59,7 @@ RUN set -x && \
     rm ibgateway-${IB_GATEWAY_VERSION}-linux-x64.sh && \
     mkdir -p /opt/IBController/Logs && \
     cd /opt/IBController/ && \
-    wget -q https://github.com/IbcAlpha/IBC/releases/download/${IB_CONTROLLER_VERSION}-Update.1/IBCLinux-${IB_CONTROLLER_VERSION}.zip && \
+    wget -q https://github.com/IbcAlpha/IBC/releases/download/${IB_CONTROLLER_VERSION}/IBCLinux-${IB_CONTROLLER_VERSION}.zip && \
     unzip IBCLinux-${IB_CONTROLLER_VERSION}.zip && \
     rm IBCLinux-${IB_CONTROLLER_VERSION}.zip && \
     chmod -R u+x ./*.sh ./scripts/*.sh
