@@ -1,9 +1,9 @@
 # Interactive Brokers Gateway Docker
 
-IB Gateway running in Docker with [IB Controller](https://github.com/ib-controller/ib-controller/) and VNC
+IB Gateway running in Docker with [IBC](https://github.com/IbcAlpha/IBC/) and VNC
 
-* TWS Gateway: 10.29.1e
-* IBC: 3.19.0
+* TWS Gateway: 10.30.01
+* IBC: 3.22.0
 
 ### Docker container image
 
