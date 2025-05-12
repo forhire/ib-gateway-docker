@@ -13,7 +13,7 @@ ARG IBAPI_VERSION=1030.01
 
 # Environment config
 ENV TZ=America/Chicago \
-    VNC_PASSWORD=1234 \         # ⚠️ Move this to secrets/.env in production
+    VNC_PASSWORD=1234 \
     TWS_MAJOR_VRSN=${IB_GATEWAY_INSTVER} \
     IBC_INI=/opt/IBController/IBController.ini \
     IBC_PATH=/opt/IBController \
