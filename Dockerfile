@@ -99,4 +99,5 @@ EXPOSE ${SOCAT_DEST_PORT}
 # Expose API port
 EXPOSE ${SOCAT_LISTEN_PORT}
 
+
 CMD /bin/bash runscript.sh
