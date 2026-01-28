@@ -67,3 +67,7 @@ Exception in thread "main" java.awt.AWTError: Can't connect to X11 window server
 ```
 
 You will have to remove the container `docker rm container_id` and run `docker-compose up` again.
+
+### Related Projects
+
+* [gnzsnz/ib-gateway-docker](https://github.com/gnzsnz/ib-gateway-docker) - A similar IB Gateway Docker project
