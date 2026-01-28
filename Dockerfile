@@ -2,7 +2,8 @@ FROM ubuntu:22.04
 
 # Set defaults for environment variables
 ENV TZ=America/Chicago
-ENV VNC_PASSWORD=1234
+# VNC_PASSWORD must be provided at runtime - no default for security
+ENV VNC_PASSWORD=
 ENV TWS_MAJOR_VRSN=${IB_GATEWAY_INSTVER}
 ENV IBC_INI=/opt/IBController/IBController.ini
 ENV IBC_PATH=/opt/IBController

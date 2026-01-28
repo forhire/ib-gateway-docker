@@ -2,41 +2,41 @@ version: '3'
 services:
   tws:
     image: ib-gateway-docker_tws:latest
-    ports:
-      - "7496:5003"
-      - "4001:5003"
-      - "4002:5003"
-      - "4003:5003"
-      - "5902:5900"
     build: .
+    restart: unless-stopped
     ports:
-      - "4003:5003"
-      - "5902:5900"
+      # Bind to localhost only for security - change to 0.0.0.0 only if needed
+      - "127.0.0.1:4001:5003"
+      - "127.0.0.1:5900:5900"
     volumes:
       - ib-controller:/opt/IBController
       - ib-jts:/root/Jts
+    env_file:
+      - .env
     environment:
       - TZ=America/Chicago
       # Variables pulled from /IBController/IBControllerGatewayStart.sh
-      - VNC_PASSWORD=1234 # CHANGEME
       - TWS_MAJOR_VRSN=stable-standalone
       - IBC_INI=/opt/IBController/IBController.ini
       - IBC_PATH=/opt/IBController
       - TWS_PATH=/root/Jts
       - TWS_CONFIG_PATH=/root/Jts
       - LOG_PATH=/opt/IBController/Logs
-      - JAVA_PATH=/opt/i4j_jres/1.8.0_152-tzdata2019c/bin # JRE is bundled starting with TWS 952 
-      - TRADING_MODE=paper # either paper or live
-      - TWSUSERID=fdemo # IB account
-      - TWSPASSWORD=demouser # IB account password
-      - FIXUSERID=
-      - FIXPASSWORD=
       - APP=GATEWAY
       - SOCAT_LISTEN_PORT=5003
-      - SOCAT_DEST_PORT=4003 # paper = 4002, live 4003
+      - SOCAT_DEST_PORT=4003
       - SOCAT_DEST_ADDR=127.0.0.1
+      # Credentials loaded from .env file:
+      # - VNC_PASSWORD
+      # - TWSUSERID
+      # - TWSPASSWORD
+      # - TRADING_MODE
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 volumes:
   ib-controller:
   ib-jts:
-

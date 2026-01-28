@@ -14,4 +14,14 @@ Logs/*
 node_modules/
 
 *.local
-.env*
+
+# Environment files with credentials - NEVER commit these
+.env
+.env-*
+.env.*
+!.env.example
+
+# Docker compose files with embedded credentials
+docker-compose-cdt.yml
+docker-compose-doug.yml
+dc-cdt.yml

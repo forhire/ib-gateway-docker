@@ -1,4 +1,31 @@
 #!/bin/bash
+set -e
+
+# Validate required environment variables
+MISSING_VARS=""
+
+if [ -z "${VNC_PASSWORD}" ]; then
+    MISSING_VARS="${MISSING_VARS} VNC_PASSWORD"
+fi
+
+if [ -z "${TWSUSERID}" ]; then
+    MISSING_VARS="${MISSING_VARS} TWSUSERID"
+fi
+
+if [ -z "${TWSPASSWORD}" ]; then
+    MISSING_VARS="${MISSING_VARS} TWSPASSWORD"
+fi
+
+if [ -n "${MISSING_VARS}" ]; then
+    echo "ERROR: Required environment variables not set:${MISSING_VARS}"
+    echo "Please provide these via .env file or docker-compose environment"
+    exit 1
+fi
+
+# Warn about live trading mode
+if [ "${TRADING_MODE}" = "live" ]; then
+    echo "WARNING: Running in LIVE trading mode"
+fi
 
 socat -d -d -d  TCP-LISTEN:${SOCAT_LISTEN_PORT},fork,forever,reuseaddr,keepalive,keepidle=10,keepintvl=10,keepcnt=2 TCP:${SOCAT_DEST_ADDR}:${SOCAT_DEST_PORT} &
 
